@@ -1,0 +1,56 @@
+C:\Users\Ýmir\Downloads\For Verkefni\ForKeyLoggerProject\Server\obj\Debug\ForKeyLoggerProject.Main.resources
+C:\Users\Ýmir\Downloads\For Verkefni\ForKeyLoggerProject\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+C:\Users\Ýmir\Downloads\For Verkefni\ForKeyLoggerProject\Server\bin\Debug\Server.exe
+C:\Users\Ýmir\Downloads\For Verkefni\ForKeyLoggerProject\Server\bin\Debug\Server.pdb
+C:\Users\Ýmir\Downloads\For Verkefni\ForKeyLoggerProject\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\Ýmir\Downloads\For Verkefni\ForKeyLoggerProject\Server\obj\Debug\Server.exe
+C:\Users\Ýmir\Downloads\For Verkefni\ForKeyLoggerProject\Server\obj\Debug\Server.pdb
+C:\Users\Ýmir\Downloads\For Verkefni\ForKeyLoggerProject\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\2805973099\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.exe
+C:\Users\2805973099\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.pdb
+C:\Users\2805973099\Downloads\ForKeyLoggerProject\Server\bin\Debug\Server.exe
+C:\Users\2805973099\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\2805973099\Downloads\ForKeyLoggerProject\Server\obj\Debug\ForKeyLoggerProject.Main.resources
+C:\Users\2805973099\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\2805973099\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+C:\Users\2805973099\Downloads\ForKeyLoggerProject\Server\bin\Debug\Server.pdb
+C:\Users\2805973099\Documents\ForKeyLoggerProject\Server\obj\Debug\Server.exe
+C:\Users\2805973099\Documents\ForKeyLoggerProject\Server\obj\Debug\Server.pdb
+C:\Users\2805973099\Documents\ForKeyLoggerProject\Server\bin\Debug\Server.exe
+C:\Users\2805973099\Documents\ForKeyLoggerProject\Server\bin\Debug\Server.pdb
+C:\Users\2805973099\Documents\ForKeyLoggerProject\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\2805973099\Documents\ForKeyLoggerProject\Server\obj\Debug\ForKeyLoggerProject.Main.resources
+C:\Users\2805973099\Documents\ForKeyLoggerProject\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\2805973099\Documents\ForKeyLoggerProject\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+C:\Users\2003973399\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.exe
+C:\Users\2003973399\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.pdb
+C:\Users\2003973399\Downloads\ForKeyLoggerProject\Server\bin\Debug\Server.exe
+C:\Users\2003973399\Downloads\ForKeyLoggerProject\Server\bin\Debug\Server.pdb
+C:\Users\2003973399\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\2003973399\Downloads\ForKeyLoggerProject\Server\obj\Debug\ForKeyLoggerProject.Main.resources
+C:\Users\2003973399\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\2003973399\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+C:\Users\Ýmir\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.exe
+C:\Users\Ýmir\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.pdb
+C:\Users\Ýmir\Downloads\ForKeyLoggerProject\Server\bin\Debug\Server.exe
+C:\Users\Ýmir\Downloads\ForKeyLoggerProject\Server\bin\Debug\Server.pdb
+C:\Users\Ýmir\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Ýmir\Downloads\ForKeyLoggerProject\Server\obj\Debug\ForKeyLoggerProject.Main.resources
+C:\Users\Ýmir\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\Ýmir\Downloads\ForKeyLoggerProject\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+C:\Users\2003973399\Desktop\ForKeyLoggerProject\Server\obj\Debug\Server.exe
+C:\Users\2003973399\Desktop\ForKeyLoggerProject\Server\obj\Debug\Server.pdb
+C:\Users\2003973399\Desktop\ForKeyLoggerProject\Server\bin\Debug\Server.exe
+C:\Users\2003973399\Desktop\ForKeyLoggerProject\Server\bin\Debug\Server.pdb
+C:\Users\2003973399\Desktop\ForKeyLoggerProject\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\2003973399\Desktop\ForKeyLoggerProject\Server\obj\Debug\ForKeyLoggerProject.Main.resources
+C:\Users\2003973399\Desktop\ForKeyLoggerProject\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\2003973399\Desktop\ForKeyLoggerProject\Server\obj\Debug\Server.csproj.GenerateResource.Cache
+C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Server\obj\Debug\Server.exe
+C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Server\obj\Debug\Server.pdb
+C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Server\bin\Debug\Server.exe
+C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Server\bin\Debug\Server.pdb
+C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Server\obj\Debug\ForKeyLoggerProject.Main.resources
+C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Server\obj\Debug\Server.csproj.GenerateResource.Cache

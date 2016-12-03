@@ -1,0 +1,12 @@
+C:\Users\Ýmir\Documents\Visual Studio 2012\Projects\ForKeyLoggerProject\ForKeyLoggerProject\bin\Debug\ForKeyLoggerProject.exe.config
+C:\Users\Ýmir\Documents\Visual Studio 2012\Projects\ForKeyLoggerProject\ForKeyLoggerProject\obj\Debug\ForKeyLoggerProject.csprojResolveAssemblyReference.cache
+C:\Users\Ýmir\Documents\Visual Studio 2012\Projects\ForKeyLoggerProject\ForKeyLoggerProject\obj\Debug\ForKeyLoggerProject.Main.resources
+C:\Users\Ýmir\Documents\Visual Studio 2012\Projects\ForKeyLoggerProject\ForKeyLoggerProject\obj\Debug\ForKeyLoggerProject.Properties.Resources.resources
+C:\Users\Ýmir\Documents\Visual Studio 2012\Projects\ForKeyLoggerProject\ForKeyLoggerProject\obj\Debug\ForKeyLoggerProject.csproj.GenerateResource.Cache
+C:\Users\Ýmir\Documents\Visual Studio 2012\Projects\ForKeyLoggerProject\ForKeyLoggerProject\bin\Debug\ForKeyLoggerProject.exe
+C:\Users\Ýmir\Documents\Visual Studio 2012\Projects\ForKeyLoggerProject\ForKeyLoggerProject\bin\Debug\ForKeyLoggerProject.pdb
+C:\Users\Ýmir\Documents\Visual Studio 2012\Projects\ForKeyLoggerProject\ForKeyLoggerProject\obj\Debug\ForKeyLoggerProject.exe
+C:\Users\Ýmir\Documents\Visual Studio 2012\Projects\ForKeyLoggerProject\ForKeyLoggerProject\obj\Debug\ForKeyLoggerProject.pdb
+C:\Users\Ýmir\Downloads\For Verkefni\ForKeyLoggerProject\ForKeyLoggerProject\bin\Debug\ForKeyLoggerProject.exe.config
+C:\Users\Ýmir\Downloads\For Verkefni\ForKeyLoggerProject\ForKeyLoggerProject\obj\Debug\ForKeyLoggerProject.exe
+C:\Users\Ýmir\Downloads\For Verkefni\ForKeyLoggerProject\ForKeyLoggerProject\obj\Debug\ForKeyLoggerProject.pdb
