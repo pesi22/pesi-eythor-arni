@@ -21,6 +21,7 @@
         <thead>
             <tr>
                 <th>IP</th>
+                <th>Status</th>
                 <th>Date Of Connection</th>
             </tr>
         </thead>
@@ -54,6 +55,7 @@ if ($result->num_rows > 0) {
          echo " <tbody> 
               <tr>
                <td>". $row["ip"] . "</td>
+               <td>". $row["logstatus"] . "</td>
                 <td>".$row["connect_date"]. "</td>
                  <tr> 
                  </tbody>";
