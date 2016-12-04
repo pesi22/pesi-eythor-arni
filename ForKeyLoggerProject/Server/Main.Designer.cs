@@ -48,6 +48,7 @@
             this.btnChangeBG = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +82,7 @@
             // 
             // btnListen
             // 
-            this.btnListen.Location = new System.Drawing.Point(12, 183);
+            this.btnListen.Location = new System.Drawing.Point(15, 186);
             this.btnListen.Name = "btnListen";
             this.btnListen.Size = new System.Drawing.Size(75, 23);
             this.btnListen.TabIndex = 1;
@@ -91,7 +92,7 @@
             // 
             // txtPort
             // 
-            this.txtPort.Location = new System.Drawing.Point(93, 186);
+            this.txtPort.Location = new System.Drawing.Point(96, 188);
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(64, 20);
             this.txtPort.TabIndex = 2;
@@ -99,7 +100,7 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(163, 186);
+            this.btnStop.Location = new System.Drawing.Point(166, 186);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 3;
@@ -181,6 +182,7 @@
             // 
             // btnChangeBG
             // 
+            this.btnChangeBG.Enabled = false;
             this.btnChangeBG.Location = new System.Drawing.Point(259, 478);
             this.btnChangeBG.Name = "btnChangeBG";
             this.btnChangeBG.Size = new System.Drawing.Size(101, 23);
@@ -201,6 +203,7 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(131, 478);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 23);
@@ -209,11 +212,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(259, 187);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(109, 22);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "Restart Clients";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(383, 513);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnChangeBG);
@@ -261,6 +275,7 @@
         private System.Windows.Forms.Button btnChangeBG;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 
