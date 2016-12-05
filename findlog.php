@@ -2,7 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>View Logs</title>
+  <link rel="stylesheet" type="text/css" href="css.css">
   <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/pure-min.css">
   <link rel="stylesheet" type="text/css" href="css.css">
 </head>
@@ -12,7 +14,7 @@
           <ul class="pure-menu-list">
               <li class="pure-menu-item"><a href="index.php" class="pure-menu-link">All Users</a></li>
               <li class="pure-menu-item"><a href="active.php" class="pure-menu-link">All Active Users</a></li>
-              <li class="pure-menu-item"><a href="logs.php" class="pure-menu-heading ">See Logs</a></li>
+              <li class="pure-menu-item"><a href="logs.php" class="pure-menu-link">See Logs</a></li>
           </ul>
       </div>
 
@@ -43,7 +45,7 @@ if ($result->num_rows > 0) {
          echo " 
                <h1>Logs From ". $row["logger_ip"] . "</h1>
                <h3> Log date : ".$row["log_date"].
-               "<p>".$row["log"]."</p>";
+               "<p>".$row["log"]."</p> <br>";
        
      }
 } else {
@@ -57,7 +59,6 @@ $conn->close();
 
 ?>  
 
- </table>
 
 </CENTER>
 </body>

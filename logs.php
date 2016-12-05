@@ -2,7 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>View Logs</title>
+  <link rel="stylesheet" type="text/css" href="css.css">
   <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/pure-min.css">
   <link rel="stylesheet" type="text/css" href="css.css">
 </head>

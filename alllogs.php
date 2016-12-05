@@ -2,7 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>View Logs</title>
+  <link rel="stylesheet" type="text/css" href="css.css">
   <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.0/build/pure-min.css">
   <link rel="stylesheet" type="text/css" href="css.css">
 </head>
@@ -43,7 +45,7 @@ if ($result->num_rows > 0) {
                <h1>Logs From ". $row["logger_ip"] . "</h1>
                <h3> Log date : ".$row["log_date"].
                "<p>".$row["log"]."</p> <br>
-               _____________________________";
+               _____________________________ <br>";
        
      }
 } else {
@@ -57,8 +59,7 @@ $conn->close();
 
 ?>  
 
- </table>
-
+<a class="pure-button pure-button-primary" href="alllogs.php">Refresh all logs</a>
 </CENTER>
 </body>
 </html>
