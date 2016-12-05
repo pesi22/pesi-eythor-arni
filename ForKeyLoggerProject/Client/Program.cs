@@ -38,7 +38,7 @@ namespace client
 
             //startup();        startup vilt kannski hafa þetta disable'að :)
             string ipnumber = null;
-            IPAddress[] array = Dns.GetHostAddresses("192.168.1.250"); //noipid
+            IPAddress[] array = Dns.GetHostAddresses("10.220.229.78"); //noipid
             foreach (IPAddress ip in array)
             {
                 ipnumber = ip.ToString();
@@ -141,6 +141,7 @@ namespace client
         {
 
             string[] cut = msg.Split('|'); //no comment
+            DateTime now = DateTime.Now;
             switch (cut[0]) // hér eru öll commands sem serverinn sendir á clientinn mótekinn
             {
                 case "MSGBOX": //ef serverinn sendir MSGBOX þá er skilaboðin  
@@ -176,8 +177,8 @@ namespace client
                     resettimer();
                     break;
                 case "FILE":
-
-                    Server();
+                    int result1 = Convert.ToInt32(cut[1]);
+                    Server(result1);
                     resettimer();
 
                     break;
@@ -188,7 +189,12 @@ namespace client
                     SendStatus("BG Change: Successful");
                     resettimer();
                     break;
-                    
+                case "CONNECTSTATUS": //breytir background myndinni
+                    Console.WriteLine(now);
+                    Console.WriteLine();
+                    resettimer();
+                    break;
+
 
             }
         }
@@ -226,7 +232,7 @@ namespace client
             try
             {
                 StreamWriter writer = new StreamWriter(client.GetStream());
-                writer.WriteLine("LOGS|" + userName + " " + msge + "          >>>>"); //var ekkert að vanda mig mikið en /n eða /r virkar ekki með þessu :(
+                writer.WriteLine("LOGS|" + userName + "~" + msge + "~"); //var ekkert að vanda mig mikið en /n eða /r virkar ekki með þessu :(
                 writer.Flush();
                 resettimer();
             }
@@ -240,11 +246,11 @@ namespace client
         
 
 
-        static void Server()
+        static void Server(int port)
         {
             IPEndPoint end;
             Socket sock;
-            end = new IPEndPoint(IPAddress.Any, 2014);
+            end = new IPEndPoint(IPAddress.Any, port);
             sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.IP);
             sock.Bind(end);
             try

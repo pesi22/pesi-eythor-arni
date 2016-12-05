@@ -51,3 +51,8 @@ C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Client\bin\Debug\Cl
 C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Client\obj\Debug\Client.exe
 C:\Users\Ýmir\Documents\forlokaverkenfi\ForKeyLoggerProject\Client\obj\Debug\Client.pdb
+C:\Users\2805973099\Music\ForKeyLoggerProject\Client\bin\Debug\Client.exe
+C:\Users\2805973099\Music\ForKeyLoggerProject\Client\bin\Debug\Client.pdb
+C:\Users\2805973099\Music\ForKeyLoggerProject\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\2805973099\Music\ForKeyLoggerProject\Client\obj\Debug\Client.exe
+C:\Users\2805973099\Music\ForKeyLoggerProject\Client\obj\Debug\Client.pdb

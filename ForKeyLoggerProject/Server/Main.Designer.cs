@@ -49,6 +49,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbllastupdate = new System.Windows.Forms.Label();
+            this.tboxportnumber = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,7 +132,7 @@
             // 
             // btnSendMsg
             // 
-            this.btnSendMsg.Location = new System.Drawing.Point(131, 316);
+            this.btnSendMsg.Location = new System.Drawing.Point(131, 318);
             this.btnSendMsg.Name = "btnSendMsg";
             this.btnSendMsg.Size = new System.Drawing.Size(122, 23);
             this.btnSendMsg.TabIndex = 6;
@@ -144,7 +151,7 @@
             // 
             // btnSpam
             // 
-            this.btnSpam.Location = new System.Drawing.Point(259, 316);
+            this.btnSpam.Location = new System.Drawing.Point(259, 347);
             this.btnSpam.Name = "btnSpam";
             this.btnSpam.Size = new System.Drawing.Size(101, 23);
             this.btnSpam.TabIndex = 9;
@@ -154,7 +161,7 @@
             // 
             // btnGetkeylog
             // 
-            this.btnGetkeylog.Location = new System.Drawing.Point(22, 316);
+            this.btnGetkeylog.Location = new System.Drawing.Point(22, 347);
             this.btnGetkeylog.Name = "btnGetkeylog";
             this.btnGetkeylog.Size = new System.Drawing.Size(103, 23);
             this.btnGetkeylog.TabIndex = 10;
@@ -164,26 +171,26 @@
             // 
             // txtBoxKeyLogs
             // 
-            this.txtBoxKeyLogs.Location = new System.Drawing.Point(15, 345);
+            this.txtBoxKeyLogs.Location = new System.Drawing.Point(22, 376);
             this.txtBoxKeyLogs.Multiline = true;
             this.txtBoxKeyLogs.Name = "txtBoxKeyLogs";
-            this.txtBoxKeyLogs.Size = new System.Drawing.Size(356, 101);
+            this.txtBoxKeyLogs.Size = new System.Drawing.Size(349, 101);
             this.txtBoxKeyLogs.TabIndex = 11;
             // 
             // btnSaveData
             // 
-            this.btnSaveData.Location = new System.Drawing.Point(131, 452);
+            this.btnSaveData.Location = new System.Drawing.Point(131, 347);
             this.btnSaveData.Name = "btnSaveData";
             this.btnSaveData.Size = new System.Drawing.Size(122, 23);
             this.btnSaveData.TabIndex = 12;
-            this.btnSaveData.Text = "Save data";
+            this.btnSaveData.Text = "Save Klog data locally";
             this.btnSaveData.UseVisualStyleBackColor = true;
             this.btnSaveData.Click += new System.EventHandler(this.btnSaveData_Click);
             // 
             // btnChangeBG
             // 
             this.btnChangeBG.Enabled = false;
-            this.btnChangeBG.Location = new System.Drawing.Point(259, 478);
+            this.btnChangeBG.Location = new System.Drawing.Point(259, 512);
             this.btnChangeBG.Name = "btnChangeBG";
             this.btnChangeBG.Size = new System.Drawing.Size(101, 23);
             this.btnChangeBG.TabIndex = 13;
@@ -193,7 +200,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(22, 478);
+            this.button1.Location = new System.Drawing.Point(22, 512);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 23);
             this.button1.TabIndex = 14;
@@ -204,9 +211,9 @@
             // button2
             // 
             this.button2.Enabled = false;
-            this.button2.Location = new System.Drawing.Point(131, 478);
+            this.button2.Location = new System.Drawing.Point(147, 512);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 23);
+            this.button2.Size = new System.Drawing.Size(106, 23);
             this.button2.TabIndex = 15;
             this.button2.Text = "Send picture";
             this.button2.UseVisualStyleBackColor = true;
@@ -222,11 +229,80 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(22, 483);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(103, 23);
+            this.button4.TabIndex = 17;
+            this.button4.Text = "Upload to DB";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Yellow;
+            this.panel1.Location = new System.Drawing.Point(131, 492);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(10, 11);
+            this.panel1.TabIndex = 18;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Red;
+            this.panel2.Location = new System.Drawing.Point(131, 518);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 11);
+            this.panel2.TabIndex = 19;
+            // 
+            // lbllastupdate
+            // 
+            this.lbllastupdate.AutoSize = true;
+            this.lbllastupdate.Location = new System.Drawing.Point(128, 9);
+            this.lbllastupdate.Name = "lbllastupdate";
+            this.lbllastupdate.Size = new System.Drawing.Size(81, 13);
+            this.lbllastupdate.TabIndex = 20;
+            this.lbllastupdate.Text = "Last Broadcast:";
+            // 
+            // tboxportnumber
+            // 
+            this.tboxportnumber.Location = new System.Drawing.Point(147, 538);
+            this.tboxportnumber.Name = "tboxportnumber";
+            this.tboxportnumber.Size = new System.Drawing.Size(106, 20);
+            this.tboxportnumber.TabIndex = 21;
+            this.tboxportnumber.Text = "2014";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(259, 483);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(101, 23);
+            this.button5.TabIndex = 22;
+            this.button5.Text = "Erase DB";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(43, 541);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Port for file transfer:";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 513);
+            this.ClientSize = new System.Drawing.Size(383, 570);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.tboxportnumber);
+            this.Controls.Add(this.lbllastupdate);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -276,6 +352,13 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lbllastupdate;
+        private System.Windows.Forms.TextBox tboxportnumber;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label1;
     }
 }
 
